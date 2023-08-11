@@ -5,12 +5,8 @@
     <v-spacer></v-spacer>
     <v-col lg="5" cols="12">
       <v-form>
-        <v-text-field
-          style="color: black; background-color: #FFFFFF; border-radius: 50px; transform: scaleY(0.78);"
-          hide-details
-          single-line
-          placeholder="Search Here"
-        ></v-text-field>
+        <v-text-field style="color: black; background-color: #FFFFFF; border-radius: 50px; transform: scaleY(0.78);"
+          hide-details single-line placeholder="Search Here"></v-text-field>
       </v-form>
     </v-col>
     <v-spacer></v-spacer>
@@ -43,39 +39,18 @@
         </span>
       </template>
 
-      <!-- diğer tarafta 55-->
-
-      <v-list width="250" class="py-0">
+      <v-list width="170" class="py-0">
         <v-list-item two-line>
           <v-row>
-  <v-col cols="auto">
-    <v-list-item-avatar>
-      <img src="https://avatars.githubusercontent.com/u/64500329?v=4" style="max-width: 100px;" />
-    </v-list-item-avatar>
-  </v-col>
-  <v-col>
-    <v-list-item-content>
-      <v-list-item-title>
-        mdksalmds
-      </v-list-item-title>
-      <v-list-item-title>
-        mdksalmds
-      </v-list-item-title>
-      <v-list-item-title>
-        mdksalmds
-      </v-list-item-title>
-      <v-list-item-title>
-        mdksalmds
-      </v-list-item-title>
-      
-    </v-list-item-content>
-  </v-col>
-</v-row>
-
-
-          <v-list-item-content>
-            <v-list-item-title>Kerem Aydın</v-list-item-title>
-            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+            <v-col cols="auto">
+              <v-list-item-avatar>
+                <img src="https://avatars.githubusercontent.com/u/64500329?v=4" style="max-width: 100px; margin-left: 20px;" />
+              </v-list-item-avatar>
+            </v-col>
+          </v-row>
+          <v-list-item-content >
+            <v-list-item-title style="margin-left: 20px;">Kerem Aydın</v-list-item-title>
+            <v-list-item-subtitle style="margin-left: 30px;">Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-divider />
@@ -104,6 +79,12 @@ export default {
     },
   },
   data: () => ({
+    menus: [
+        { title: "Profile", icon: "mdi-account" },
+        { title: "Change Password", icon: "mdi-key" },
+        { title: "Setting", icon: "mdi-cog" },
+        { title: "Logout", icon: "mdi-logout" },
+      ],
     items: [
       { type: 'subheader', title: 'Today' },
       {
