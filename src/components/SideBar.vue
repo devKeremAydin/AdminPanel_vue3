@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-show="true" v-model="localDrawer" app style="background-color: #24182f;">
+  <v-navigation-drawer v-model="localDrawer" app style="background-color: #24182f;">
     <v-img src="">
       <div class="text-center">
         <v-avatar class="mt-4" size="64">
@@ -19,15 +19,31 @@
 <script>
 export default {
   name: 'SideBar',
-  data() {
-    return {
+  props: {
+    drawerVisible: Boolean // Görünürlük durumunu almak için prop tanımla
+  },
+  computed: {
+    localDrawer: {
+      get() {
+        return this.drawerVisible;
+      },
+      set(val) {
+        // Kapatma işlemini App.vue üzerinden yönet
+        if (!val) {
+          this.$emit('update:drawerVisible', val);
+        }
+      }
+    }
+  },
+  data(){
+    return{
       links: [
         ["mdi-microsoft-windows", "Dashboard"],
         ["mdi-account", "Profile"],
         ["mdi-clipboard-list-outline", "Products"],
         ["mdi-card-account-details-outline", "Orders"],
         ["mdi-cog", "System Setting"],
-      ]
+      ],
     }
   }
 }

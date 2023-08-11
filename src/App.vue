@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <TopBar />
-    <SideBar />
+    <TopBar @menu-click="toggleSidebar" />
+    <SideBar :drawerVisible="showSidebar" @update:drawerVisible="showSidebar = $event" />
     <v-main>
       <v-container class="py-8 px-6" fluid>
         <v-row>
@@ -30,15 +30,17 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import TopBar from './components/TopBar.vue';
 import SideBar from './components/SideBar.vue';
 
-const cards = ['Today', 'Yesterday']
+const cards = ['Today', 'Yesterday'];
+const showSidebar = ref(true);
 
-
-
+const toggleSidebar = () => {
+  showSidebar.value = !showSidebar.value;
+}
 </script>
-
 
 <style>
 
