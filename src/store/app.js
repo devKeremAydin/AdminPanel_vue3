@@ -1,8 +1,15 @@
-// Utilities
 import { defineStore } from 'pinia'
 
-export const useAppStore = defineStore('app', {
+export const useCounterStore = defineStore('counter', {
   state: () => ({
-    //
+    count: 10,
   }),
+  actions: {
+    increment() {
+      this.count++
+    },
+    decrement() {
+      this.count--
+    },
+  },
 })
