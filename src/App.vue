@@ -15,7 +15,7 @@ import { ref } from 'vue';
 import TopBar from './components/TopBar.vue';
 import SideBar from './components/SideBar.vue';
 
-const cards = ['Today', 'Yesterday'];
+
 const showSidebar = ref(true);
 
 const toggleSidebar = () => {

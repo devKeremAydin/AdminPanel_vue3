@@ -12,15 +12,25 @@
     <v-divider></v-divider>
 
     <v-list>
-      <v-list-item style="color: white;" v-for="[icon, text] in links" :key="icon" :prepend-icon="icon" :title="text" link></v-list-item>
+      <v-list-item
+        style="color: white;"
+        v-for="item in links"
+        :key="item[1]"
+        :prepend-icon="item[0]"
+        link
+        @click="navigateTo(item[1])"
+      >
+        {{ item[1] }}
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
+
 <script>
 export default {
   name: 'SideBar',
   props: {
-    drawerVisible: Boolean // Görünürlük durumunu almak için prop tanımla
+    drawerVisible: Boolean,
   },
   computed: {
     localDrawer: {
@@ -28,24 +38,33 @@ export default {
         return this.drawerVisible;
       },
       set(val) {
-        // Kapatma işlemini App.vue üzerinden yönet
         if (!val) {
           this.$emit('update:drawerVisible', val);
         }
-      }
-    }
+      },
+    },
   },
-  data(){
-    return{
+  data() {
+    return {
       links: [
-        ["mdi-microsoft-windows", "Dashboard"],
-        ["mdi-account", "Profile"],
-        ["mdi-clipboard-list-outline", "Products"],
-        ["mdi-card-account-details-outline", "Orders"],
-        ["mdi-cog", "System Setting"],
+        ['mdi-microsoft-windows', 'Dashboard'],
+        ['mdi-account', 'Profile'],
+        ['mdi-clipboard-list-outline', 'Products'],
+        ['mdi-card-account-details-outline', 'Orders'],
+        ['mdi-cog', 'System Setting'],
       ],
-    }
-  }
-}
+    };
+  },
+  methods: {
+    navigateTo(route) {
+      if (route.toLowerCase() === 'dashboard') {
+        this.$router.push('/');
+      } else {
+        this.$router.push('/' + route.toLowerCase());
+      }
+    },
+  },
+};
 </script>
+
 <style></style>
