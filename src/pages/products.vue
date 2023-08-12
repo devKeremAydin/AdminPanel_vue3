@@ -1,15 +1,14 @@
 <template>
     <div>
-      <h1>Products</h1>
-      <div>
-        <p>Count: {{ counter }}</p>
-        <button style="border: 1px solid black; margin-right: 2px;" @click="increment">Increase</button>
-        <button style="border: 1px solid black; margin-left: 2px;" @click="decrement">Decrease</button>
-      </div>
+      <h1>Product Page</h1>
+      <p>Count: {{ count }}</p>
+      <button @click="increment">Artır</button>
+      <button @click="decrement">Azalt</button>
     </div>
   </template>
   
   <script>
+  import { computed } from 'vue'
   import { useCounterStore } from '@/store/app'
   
   export default {
@@ -25,8 +24,11 @@
         counterStore.decrement()
       }
   
+      // Store'daki count değerini burada bir computed property ile alıyoruz.
+      const count = computed(() => counterStore.count)
+  
       return {
-        counter: counterStore.count,
+        count,
         increment,
         decrement,
       }
@@ -34,5 +36,6 @@
   }
   </script>
   
-  <style></style>
+  <style scoped>
+  </style>
   
