@@ -3,7 +3,7 @@
  *
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
-
+import VueApexCharts from "vue3-apexcharts";
 // Components
 import App from './App.vue'
 
@@ -18,3 +18,4 @@ const app = createApp(App)
 registerPlugins(app)
 
 app.mount('#app')
+app.use(VueApexCharts);
