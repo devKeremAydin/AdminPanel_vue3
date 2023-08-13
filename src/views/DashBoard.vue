@@ -9,8 +9,8 @@
         <div id="vuechart-example-1">
           <apexchart width="500" type="bar" :options="options1" :series="series1"></apexchart>
         </div>
-        <div id="vuechart-example-2" style="margin-left: 130px; margin-top: 30px;">
-          <apexchart type="pie" width="380" :options="pieChartOptions" :series="pieSeries"></apexchart>
+        <div style="margin-left: 70px;">
+          <apexchart type="pie" width="450" :options="pieChartOptions" :series="pieSeries"></apexchart>
         </div>
       </v-row>
       <div id="vuechart-example-3">
@@ -159,7 +159,7 @@
   };
   </script>
   
-  <style scoped>
-  /* Bu kısmı ihtiyaca göre düzenleyin */
+  <style>
+  
   </style>
   
